@@ -1,0 +1,20 @@
+[project]
+name = "pleytner"
+version = "0.1.0"
+description = "Python implementation of the Leitner system."
+authors = [{ name = "vagrid", email = "vagrid@zaclys.net" }]
+maintainers = [{ name = "vagrid", email = "vagrid@zaclys.net" }]
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = []
+[dependency-groups]
+dev = ["ruff>=0.11.6", "pytest-cov>=6.1.1"]
