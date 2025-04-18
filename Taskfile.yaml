@@ -1,0 +1,44 @@
+version: '3'
+
+tasks:
+  clean:
+    desc: Clean build artifacts, Python file artifacts
+    cmds:
+      - task: clean-build
+      - task: clean-pyc
+      - task: clean-test
+
+  clean-build:
+    desc: Remove build artifacts
+    cmds:
+      - rm -rf build/
+      - rm -rf dist/
+      - rm -rf .eggs/
+      - find . -name '*.egg-info' -exec rm -fr {} +
+      - find . -name '*.egg' -exec rm -f {} +
+
+  clean-pyc:
+    desc: Remove Python file artifacts
+    cmds:
+      - find . -name '*.pyc' -exec rm -f {} +
+      - find . -name '*.pyo' -exec rm -f {} +
+      - find . -name '*~' -exec rm -f {} +
+      - find . -name '__pycache__' -exec rm -fr {} +
+
+  clean-test:
+    desc: Remove test and coverage artifacts
+    cmds:
+      - rm -fr .tox/
+      - rm -f .coverage
+      - rm -fr htmlcov/
+      - rm -fr .pytest_cache
+
+  format:
+    desc: Format with ruff
+    cmds:
+      - uv run ruff format
+
+  test:
+    desc: Run tests and coverage (see pyproject.toml)
+    cmds:
+      - uv run pytest
