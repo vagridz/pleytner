@@ -3,7 +3,22 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-ast
+        name: "Valid Python files"
       - id: trailing-whitespace
+        name: "No white spaces"
       - id: mixed-line-ending
+        name: "Replace most frequent line ending"
       - id: end-of-file-fixer
+        name: "End with a new line"
       - id: check-toml
+        name: "Valid TOML files"
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.6
+    hooks:
+      - id: ruff
+        name: "Ruff (lint)"
+        types_or: [ python, pyi ]
+        args: [ --fix ]
+      - id: ruff-format
+        name: "Ruff (format)"
+        types_or: [ python, pyi ]
